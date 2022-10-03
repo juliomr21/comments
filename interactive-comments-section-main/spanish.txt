@@ -1,0 +1,25 @@
+Su desafío es construir esta sección de comentarios interactivos y lograr que se parezca lo más posible al diseño.
+
+Puedes usar cualquier herramienta que te guste para ayudarte a completar el desafío. Entonces, si tienes algo que te gustaría practicar, no dudes en intentarlo.
+
+Proporcionamos los datos en un archivo `data.json` local, así que utilícelo para completar el contenido en la primera carga. Si desea mejorarlo, ¡siéntase libre de compilarlo como una aplicación CRUD de pila completa!
+
+Sus usuarios deberían poder:
+
+- Ver el diseño óptimo para la aplicación según el tamaño de pantalla de su dispositivo
+- Ver estados de desplazamiento para todos los elementos interactivos en la página
+- Crear, leer, actualizar y eliminar comentarios y respuestas
+- Comentarios positivos y negativos
+- **Bonificación**: si está creando un proyecto puramente frontal, use `localStorage` para guardar el estado actual en el navegador que persiste cuando se actualiza el navegador.
+- **Bonificación**: en lugar de usar las cadenas `createdAt` del archivo `data.json`, intente usar marcas de tiempo y realice un seguimiento dinámico del tiempo transcurrido desde que se publicó el comentario o la respuesta.
+
+¿Quieres algo de apoyo en el desafío? [Únase a nuestra comunidad de Slack](https://www.frontendmentor.io/slack) y haga preguntas en el canal **#help**.
+
+### Comportamiento esperado
+
+- Los comentarios de primer nivel deben ordenarse por su puntaje, mientras que las respuestas anidadas se ordenan por tiempo agregado.
+- Responder a un comentario agrega la nueva respuesta al final de las respuestas anidadas dentro de ese comentario.
+- Debería aparecer un modal de confirmación antes de que se elimine un comentario o una respuesta.
+- Agregar un nuevo comentario o respuesta usa el objeto `currentUser` del archivo `data.json`.
+- Solo puede editar o eliminar sus propios comentarios y respuestas.
+
