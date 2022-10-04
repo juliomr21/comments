@@ -13,6 +13,7 @@ export class CommentsComponent implements OnInit {
   text: string = "";
   reply: string = "";
   tem: boolean = false;
+  ed: boolean = true;
   com: number = 0;
   idG: number = 10;
   noreply = "juliusomo"
@@ -104,8 +105,39 @@ export class CommentsComponent implements OnInit {
     }
   }
 
-  editar(){
+  editar(id: number, us: string){
+    if(this.tem)
+    {
+      this.updateText(id);
+      return;
+    }
+     
+  this.funn(id,us);
+  for(let i in this.bb)
+  {
+    if(this.bb[i].id == id)
+    {
+      this.reply = this.bb[i].content;
+      this.bb[i].content ="";
+      this.ed = false;
+      break;
+    }
     
+  }    
+  }
+  updateText(id: number){
+    for(let i in this.bb)
+    {
+      if(this.bb[i].id == id)
+      {
+         this.bb[i].content = this.reply;
+           break;
+      }
+
+    }    
+    this.tem = !this.tem;
+    this.reply = ""
+    this.ed = true;
   }
 
 }
