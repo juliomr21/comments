@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
 
-            <div *ngFor="let i of bb" class="container col-lg-8" style="margin-bottom: 1%;">
+            <div *ngFor="let i of comments" class="container col-lg-8" style="margin-bottom: 1%;">
 
                 <div class="card">
                     <div class="row">
@@ -84,7 +84,7 @@
                         <div class="row " style="margin-left: 3%; margin-top: 3%">
 
                             <div *ngIf="ed" class="col-lg-1 col-md-1" width="5px" height="5px">
-                                <img src={{bd.currentUser.image.png}} alt="">
+                                <img src={{database.currentUser.image.png}} alt="">
                             </div>
                             <div class="col-lg-8 col-md-8" style="margin-left: 5%;">
                                 <textarea name="" id="" cols="50" rows="4" class="form-control"
@@ -220,7 +220,7 @@
                 <div class="row " style="margin-left: 3%; margin-top: 3%">
 
                     <div class="col-lg-1 col-md-1" >
-                        <img src={{bd.currentUser.image.png}} alt="">
+                        <img src={{database.currentUser.image.png}} alt="">
                     </div>
                     
                     <div class="col-lg-8 col-md-8" style="margin-left: 5%;">
@@ -229,7 +229,7 @@
                     </div>
                     <div class="col-lg-2 col-md-2">
                         <a class=" btn btn-primary"  (click)="send()" id="fin" href="#fin">SEND </a>
-                        <!-- <a href="#fin">hbb</a> -->
+                        <!-- <a href="#fin">hcomments</a> -->
                         <!-- <button class=" btn btn-primary" hr>SENDR</button> -->
                     </div>
                 </div>
