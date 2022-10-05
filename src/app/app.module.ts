@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommentsComponent } from './comments/comments.component';
 import { FormsModule } from '@angular/forms';
-import { ReplyComponent } from './reply/reply.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommentsComponent,
-    ReplyComponent
+    CommentsComponent
+    
   ],
   imports: [
     BrowserModule,
