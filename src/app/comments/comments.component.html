@@ -54,7 +54,8 @@
                                             <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
                                         <div class="col-lg-3 col-md-3">
-                                            <p class="text-danger" style="cursor: pointer;"(click)="delet(i.id)"> delete</p>
+                                            <p class="text-danger" style="cursor: pointer;" (click)="delet(i.id)">
+                                                delete</p>
                                         </div>
                                         <div class="col-lg-1 col-md-1">
                                             <img src="assets/images/icon-edit.svg" alt="">
@@ -97,7 +98,7 @@
                                 <div *ngIf="!ed">
                                     <button class=" btn btn-primary" (click)="updateText(i.id)">Update</button>
                                 </div>
-                                
+
                             </div>
 
 
@@ -109,50 +110,70 @@
 
                     <div class="row">
                         <div class="col-lg-1 col-md-1" style="margin-top: 2%;">
-                            <button class="btn btn-primary" >+</button>
+                            <button class="btn btn-primary">+</button>
                             <button class="btn btn-primary">{{rep.score}}</button>
                             <button class="btn btn-primary">+</button>
                         </div>
                         <div class="col-lg-11 col-md-11" style="margin-top: 2%;">
 
-                            <div class="row">
-                                <div class="col-lg-1 col-md-1">
+                            <div class="flex">
+                                <div>
                                     <img src={{rep.user.image.png}} alt="">
                                 </div>
-                            <!-- //////////////////////////// -->
+                                <div class="" *ngIf="rep.user.username == noreply" style="margin-left: 1%;">
+                                    <p style="background-color: blueviolet;  border-radius: 1em;"
+                                        class="text-white text-center">You</p>
+                                </div>
+                                
+                                
+                                <div style="margin-left: 1%;">
+                                    <strong> {{rep.user.username}}</strong>
+                                </div>
+                                <div style="margin-left: 1%;">
+                                    {{rep.createdAt}}
+                                </div>
+                                <div *ngIf="rep.user.username != noreply" class="pos-end">
+                                   
+                                    <img src="assets/images/icon-reply.svg" alt="">
+                                    <strong style="color:blueviolet;cursor: pointer;"
+                                                (click)="ff(rep.id,rep.user.username)"> Reply</strong>
+                              </div>
+                              <div *ngIf="rep.user.username == noreply"  class="pos-end  justify-content ">
+                               
+                                <img src="assets/images/icon-delete.svg" alt="">
+                                <strong class="text-danger" style="cursor: pointer; margin-right: 6px;"
+                                (click)="deleteR(i.id,rep.id)"> delete </strong>
+                                
+                                <img src="assets/images/icon-edit.svg" alt="">
+                                <strong style="color:blueviolet;cursor: pointer;"
+                                (click)="editR(i.id,rep.id)"> Edit</strong>
+                                
+                                
+                                    
+                            </div>
+                             
+                                <!-- //////////////////////////// -->
+                            </div>    
                                 <div class="col-lg-10 col-md-10" style="margin-top: 2%; margin-left:3%">
                                     <div class="row">
-                                        <div class="col-lg-2 col-md-2" *ngIf="rep.user.username == noreply">
-                                            <p style="background-color: blueviolet; border-radius: 2em;"
-                                                class="text-white text-center">You</p>
-                                        </div>
+                                        
                                         <!-- <div class="col-lg-5 col-md-5">
                                             <p> <strong> {{rep.user.username}}</strong> {{rep.createdAt}}</p>
                                         </div> -->
                                         <div class="col-lg-10 col-md-10">
-                                            <div *ngIf="rep.user.username != noreply">
+                                          
+                                            <!-- <div *ngIf="rep.user.username == noreply" style="margin-top: 2%;">
                                                 <div class="row">
-
-                                                    <div class="col-lg-8 col-md-8" > <p> <strong> {{rep.user.username}}</strong> {{rep.createdAt}}</p></div>
-                                                    <div class="col-lg-1 col-md-1">
-                                                        <img src="assets/images/icon-reply.svg" alt="">
+                                                    <div class="col-lg-5 col-md-6">
+                                                        <p> <strong> {{rep.user.username}}</strong> {{rep.createdAt}}
+                                                        </p>
                                                     </div>
-                                                    <div class="col-lg-3 col-md-3">
-                                                        <strong style="color:blueviolet;cursor: pointer;"
-                                                            (click)="ff(rep.id,rep.user.username)">RReply</strong>
-                                                    </div>
-                                                </div>
-                                                  
-                                                      
-                                            </div>
-                                            <div *ngIf="rep.user.username == noreply" style="margin-top: 2%;">
-                                                <div class="row">
-                                                    <div class="col-lg-5 col-md-6" > <p> <strong> {{rep.user.username}}</strong> {{rep.createdAt}}</p></div>
                                                     <div class="col-lg-1 col-md-1">
                                                         <img src="assets/images/icon-delete.svg" alt="">
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
-                                                        <p class="text-danger" style="cursor: pointer;" (click)="deleteR(i.id,rep.id)"> delete</p>
+                                                        <p class="text-danger" style="cursor: pointer;"
+                                                            (click)="deleteR(i.id,rep.id)"> delete</p>
                                                     </div>
                                                     <div class="col-lg-1 col-md-1">
                                                         <img src="assets/images/icon-edit.svg" alt="">
@@ -163,81 +184,94 @@
                                                     </div>
 
                                                 </div>
-                                                
-        
-        
-                                            </div>
+
+
+
+                                            </div> -->
                                         </div>
                                     </div>
-                                    
-                                    
+
+
 
                                     <!-- ////////////////////////// -->
                                 </div>
-                            </div>
+                            
                             <p> {{rep.content}}</p>
                         </div>
 
-               
+
                     </div>
-                <!-- area de prueba -->
-                <!--  -->
-                <div *ngIf="edR && rep.id == com">
-                    <div class="container">
-                        <hr>
-                    </div>
-
-
-                    <div class="row " style="margin-left: 3%; margin-top: 3%">
-
-                        
-                        <div class="col-lg-8 col-md-8" style="margin-left: 5%;">
-                            <textarea name="" id="" cols="50" rows="4" class="form-control"
-                                style="margin-bottom: 5%;" [(ngModel)]="reply"></textarea>
-                        </div>
-                        <div class="col-lg-2 col-md-2">
-                                <div *ngIf="rep.user.username != noreply">
-                                    <button class=" btn btn-primary" (click)="sendRReply(i.id)">Reply</button>
-                                </div>
-                        
-                                <div *ngIf="rep.user.username == noreply">
-                                    <button class=" btn btn-primary" (click)="updateTextR(i.id,rep.id)">Update</button>
-                                </div>
-                                
-                                                     
+                    <!-- area de prueba -->
+                    <!--  -->
+                    <div *ngIf="edR && rep.id == com" class="flex">
+                        <div class="mi-center">
+                            <span></span>
                         </div>
 
+                        <div class="mi-center text-tarea ">
+                            <textarea name="" id="" cols="auto" rows="4" class="form-control" style="margin-bottom: 5%;"
+                                [(ngModel)]="reply"></textarea>
+                        </div>
+                        <div class="pos-end">
+                            <div *ngIf="rep.user.username != noreply">
+                                <button class=" btn btn-primary" (click)="sendRReply(i.id)">Reply</button>
+                            </div>
+
+                            <div *ngIf="rep.user.username == noreply" class="">
+                                <button class=" btn btn-primary" (click)="updateTextR(i.id,rep.id)">Update</button>
+                            </div>
+
+                        </div>
 
                     </div>
+
+                    <!-- fin de area de prueba -->
                 </div>
 
-                <!-- fin de area de prueba -->
-                </div>
-               
             </div>
-            <!-- nnnnnnnnnnnnn -->
-            <div class="card container col-lg-9 col-md-9 " style="margin-top: 5%; margin-bottom: 5%; position: fixed-bottom "  >
-                <div class="row " style="margin-left: 3%; margin-top: 3%">
+            <!-- nnnnnnnnnnnnnkkkkk -->
+            <div class="card container col-lg-8 col-md-8 "
+                style="margin-top: 5%; margin-bottom: 5%;  ">
+                <div class="flex">
 
-                    <div class="col-lg-1 col-md-1" >
+                    <div class="">
                         <img src={{database.currentUser.image.png}} alt="">
                     </div>
-                    
-                    <div class="col-lg-8 col-md-8" style="margin-left: 5%;">
-                        <textarea name="" id="" cols="50" rows="4" class="form-control" placeholder="Escriba un comentario..." style="margin-bottom: 5%;"
+
+                    <div class="mi-center text-tarea">
+                        <textarea name="" id="" cols="auto" rows="4" class="form-control"
+                            placeholder="Escriba un comentario..." style="margin-bottom: 5%;"
                             [(ngModel)]="text"></textarea>
                     </div>
-                    <div class="col-lg-2 col-md-2">
-                        <a class=" btn btn-primary"  (click)="send()" id="fin" href="#fin">SEND </a>
-                        <!-- <a href="#fin">hcomments</a> -->
-                        <!-- <button class=" btn btn-primary" hr>SENDR</button> -->
+                    <div class="pos-end">
+                        <a class=" btn btn-primary" (click)="send()" >SEND </a>
+
                     </div>
                 </div>
             </div>
             <!-- mmmmmmmmmmmmmmmmmmmmmmmmm -->
         </div>
     </div>
-</div >
-<!-- <div id="fin" style="position: fixed-bottom;">
+</div>
 
-</div> -->
+<div class="card">
+
+    <div class="flex">
+        <div>
+            <img src= "assets/images/avatars/image-amyrobson.webp alt=">
+        </div>
+        <!-- <div class="" *ngIf="rep.user.username == noreply" style="margin-left: 1%;"> -->
+            <p style="background-color: blueviolet; "
+                class="text-white text-center">You</p>
+        <!-- </div> -->
+        
+        
+        <div>
+            <strong> juliusomo</strong>
+        </div>
+        <div class="pos-end">
+            <!-- {{rep.createdAt}}      -->
+           <button>kk</button>
+       </div>
+</div>
+
