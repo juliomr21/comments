@@ -46,8 +46,8 @@
                                             <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
 
-                                        <div class="text-danger col" style="cursor: pointer;"
-                                            (click)="delet(i.id)"> delete </div>
+                                        <div class="text-danger col" style="cursor: pointer;"data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            (click)="tempIdModal(i.id,-1)" > delete </div>
 
                                         <div class="col">
                                             <img src="assets/images/icon-edit.svg" alt="">
@@ -86,8 +86,8 @@
                                         <img src="assets/images/icon-delete.svg" alt="">
                                     </div>
 
-                                    <div class="text-danger col" style="cursor: pointer;"
-                                        (click)="delet(i.id)"> delete </div>
+                                    <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                        (click)="tempIdModal(i.id,-1)"> delete </div>
 
                                     <div class="col">
                                         <img src="assets/images/icon-edit.svg" alt="">
@@ -178,8 +178,8 @@
                                             <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
 
-                                        <div class="text-danger col" style="cursor: pointer;"
-                                            (click)="deleteR(i.id,rep.id)"> delete </div>
+                                        <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            (click)="tempIdModal(i.id,rep.id)" > delete </div>
 
                                         <div class="col">
                                             <img src="assets/images/icon-edit.svg" alt="">
@@ -214,8 +214,8 @@
                                         <img src="assets/images/icon-delete.svg" alt="">
                                     </div>
 
-                                    <div class="text-danger col" style="cursor: pointer;"
-                                        (click)="deleteR(i.id,rep.id)"> delete </div>
+                                    <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                        (click)="tempIdModal(i.id,rep.id)" > delete </div>
 
                                     <div class="col">
                                         <img src="assets/images/icon-edit.svg" alt="">
@@ -257,7 +257,6 @@
                 </div>
 
             </div>
-            <!-- nnnnnnnnnnnnnkkkkk -->
             <div class="card container col-lg-8 col-md-8 " style="margin-top: 5%; margin-bottom: 5%;  ">
                 <div class="flex">
 
@@ -276,9 +275,30 @@
                     </div>
                 </div>
             </div>
-            <!-- mmmmmmmmmmmmmmmmmmmmmmmmm -->
         </div>
     </div>
 </div>
                             
-
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Lanzar demo de modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="flex"> 
+          <h5 class="modal-title " id="exampleModalLabel" style="margin-left: 3%">Delete comment</h5>
+          <button type="button" class="btn-close pos-end" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body flex mi-center">
+            Are you sure you want to delete this comment? This will remove the comment and can't be undone.
+        </div>
+        <div class="flex mi-center" style="margin-bottom: 6px;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin-right: 6px;">No, cancel</button>
+          <button type="button" class="btn btn-danger"  data-bs-dismiss="modal" (click)="modalDelete() " >Yes, delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

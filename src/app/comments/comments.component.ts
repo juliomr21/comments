@@ -19,7 +19,9 @@ export class CommentsComponent implements OnInit {
   mark: boolean = false;
   com: number = 0;
   idGlobal: number = 10;
-  noreply = "juliusomo"
+  noreply = "juliusomo";
+  idPM: number = -1;
+  idHM: number = -1;
   constructor(private httpserv: HttpserviceService) { }
 
   ngOnInit(): void {
@@ -244,6 +246,16 @@ export class CommentsComponent implements OnInit {
     }
 
   }
-
+  tempIdModal(idP:number,idH:number)
+  {
+    this.idPM = idP;
+    this.idHM = idH;
+  }
+ modalDelete(){
+  if(this.idHM == -1)
+   this.delet(this.idPM);
+  else
+    this.deleteR(this.idPM,this.idHM);
+ }
 }
 
