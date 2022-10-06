@@ -15,60 +15,48 @@
                             <button class="btn btn-primary">+</button>
                         </div>
                         <div class="col-lg-11 col-md-11">
-                            <div class="row" style="margin-top: 2%;">
-                                <div class="col-lg-1 col-md-1">
+                            <div class="flex">
+                                <div>
                                     <img src={{i.user.image.png}} alt="">
                                 </div>
+                                <div *ngIf="i.user.username == noreply">
+                                    <p style="background-color: blueviolet; border-radius: 2em;"
+                                        class="text-white text-center">You</p>
+                                </div>
 
-                                <div class="col-lg-5 col-md-5" style="margin-left: 2%; margin-top: 2%;">
+                                <strong style="margin-left: 1%;"> {{i.user.username}} </strong>
+
+                                <div style="margin-left: 1%;">
+                                    {{i.createdAt}}
+                                </div>
+                                <div class="pos-end" *ngIf="i.user.username != noreply">
+
+                                    <img src="assets/images/icon-reply.svg" alt="">
+                                    <strong style="color:blueviolet;cursor: pointer;"
+                                        (click)="funn(i.id,i.user.username)"> Reply</strong>
+
+                                </div>
+                                <div class="pos-end" *ngIf="i.user.username == noreply">
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3" *ngIf="i.user.username == noreply">
-                                            <p style="background-color: blueviolet; border-radius: 2em;"
-                                                class="text-white text-center">You</p>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <strong style="margin-right: 1%;"> {{i.user.username}} </strong>
-                                        </div>
-
-                                        <div class="col-lg-5 col-md-5">
-                                            <p> {{i.createdAt}}</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-5 col-md-5">
-                                    <div *ngIf="i.user.username != noreply" class="row" style="margin-top: 5%;">
-                                        <div class="col-lg-7 col-md-7" style="margin-left: 8%;"></div>
-                                        <div class="col-lg-1 col-md-1">
-                                            <img src="assets/images/icon-reply.svg" alt="">
-                                        </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <strong style="color:blueviolet;cursor: pointer;"
-                                                (click)="funn(i.id,i.user.username)">Reply</strong>
-                                        </div>
-                                    </div>
-                                    <div *ngIf="i.user.username == noreply" class="row" style="margin-top: 5%;">
-                                        <div class="col-lg-3 col-md-3" style="margin-left: 3%;"></div>
-                                        <div class="col-lg-1 col-md-1">
+                                        <div class="col">
                                             <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <p class="text-danger" style="cursor: pointer;" (click)="delet(i.id)">
-                                                delete</p>
-                                        </div>
-                                        <div class="col-lg-1 col-md-1">
+
+                                        <div class="text-danger col" style="cursor: pointer;"
+                                            (click)="delet(i.id)"> delete </div>
+
+                                        <div class="col">
                                             <img src="assets/images/icon-edit.svg" alt="">
                                         </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <strong style="color:blueviolet;cursor: pointer;"
-                                                (click)="editar(i.id,i.user.username)">Edit</strong>
-                                        </div>
 
+                                        <p style="color:blueviolet;cursor: pointer; " (click)="editar(i.id,noreply)"
+                                            class="col"> Edit</p>
 
                                     </div>
 
                                 </div>
+
                             </div>
 
                             <p>{{i.content}}</p>
@@ -77,21 +65,22 @@
 
                     </div>
                     <div *ngIf="tem && i.id == com">
-                        <div class="container">
-                            <hr>
-                        </div>
+                        
 
 
-                        <div class="row " style="margin-left: 3%; margin-top: 3%">
+                        <div class="flex" style="margin-left: 3%; margin-top: 3%">
 
-                            <div *ngIf="ed" class="col-lg-1 col-md-1" width="5px" height="5px">
+                            <div *ngIf="ed">
                                 <img src={{database.currentUser.image.png}} alt="">
                             </div>
-                            <div class="col-lg-8 col-md-8" style="margin-left: 5%;">
-                                <textarea name="" id="" cols="50" rows="4" class="form-control"
-                                    style="margin-bottom: 5%;" [(ngModel)]="reply"></textarea>
+
+
+                            <div class="mi-center text-tarea ">
+                                <textarea name="" id="" cols="auto" rows="4" class="form-control" style="margin-bottom: 5%;"
+                                    [(ngModel)]="reply"></textarea>
                             </div>
-                            <div class="col-lg-2 col-md-2">
+
+                            <div class="pos-end">
                                 <div *ngIf="ed">
                                     <button class=" btn btn-primary" (click)="sendReply(i.id)">Reply</button>
                                 </div>
@@ -124,8 +113,8 @@
                                     <p style="background-color: blueviolet;  border-radius: 1em;"
                                         class="text-white text-center">You</p>
                                 </div>
-                                
-                                
+
+
                                 <div style="margin-left: 1%;">
                                     <strong> {{rep.user.username}}</strong>
                                 </div>
@@ -133,72 +122,35 @@
                                     {{rep.createdAt}}
                                 </div>
                                 <div *ngIf="rep.user.username != noreply" class="pos-end">
-                                   
+
                                     <img src="assets/images/icon-reply.svg" alt="">
                                     <strong style="color:blueviolet;cursor: pointer;"
-                                                (click)="ff(rep.id,rep.user.username)"> Reply</strong>
-                              </div>
-                              <div *ngIf="rep.user.username == noreply"  class="pos-end  justify-content ">
-                               
-                                <img src="assets/images/icon-delete.svg" alt="">
-                                <strong class="text-danger" style="cursor: pointer; margin-right: 6px;"
-                                (click)="deleteR(i.id,rep.id)"> delete </strong>
-                                
-                                <img src="assets/images/icon-edit.svg" alt="">
-                                <strong style="color:blueviolet;cursor: pointer;"
-                                (click)="editR(i.id,rep.id)"> Edit</strong>
-                                
-                                
-                                    
-                            </div>
-                             
-                                <!-- //////////////////////////// -->
-                            </div>    
-                                <div class="col-lg-10 col-md-10" style="margin-top: 2%; margin-left:3%">
+                                        (click)="ff(rep.id,rep.user.username)"> Reply</strong>
+                                </div>
+                                <div *ngIf="rep.user.username == noreply" class="pos-end ">
+
                                     <div class="row">
-                                        
-                                        <!-- <div class="col-lg-5 col-md-5">
-                                            <p> <strong> {{rep.user.username}}</strong> {{rep.createdAt}}</p>
-                                        </div> -->
-                                        <div class="col-lg-10 col-md-10">
-                                          
-                                            <!-- <div *ngIf="rep.user.username == noreply" style="margin-top: 2%;">
-                                                <div class="row">
-                                                    <div class="col-lg-5 col-md-6">
-                                                        <p> <strong> {{rep.user.username}}</strong> {{rep.createdAt}}
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-1 col-md-1">
-                                                        <img src="assets/images/icon-delete.svg" alt="">
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3">
-                                                        <p class="text-danger" style="cursor: pointer;"
-                                                            (click)="deleteR(i.id,rep.id)"> delete</p>
-                                                    </div>
-                                                    <div class="col-lg-1 col-md-1">
-                                                        <img src="assets/images/icon-edit.svg" alt="">
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-3">
-                                                        <strong style="color:blueviolet;cursor: pointer;"
-                                                            (click)="editR(i.id,rep.id)">Edit</strong>
-                                                    </div>
-
-                                                </div>
-
-
-
-                                            </div> -->
+                                        <div class="col">
+                                            <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
+
+                                        <div class="text-danger col" style="cursor: pointer;"
+                                            (click)="deleteR(i.id,rep.id)"> delete </div>
+
+                                        <div class="col">
+                                            <img src="assets/images/icon-edit.svg" alt="">
+                                        </div>
+
+                                        <p style="color:blueviolet;cursor: pointer; " (click)="editR(i.id,rep.id)"
+                                            class="col"> Edit</p>
+
                                     </div>
 
-
-
-                                    <!-- ////////////////////////// -->
                                 </div>
-                            
+                            </div>
+
                             <p> {{rep.content}}</p>
                         </div>
-
 
                     </div>
                     <!-- area de prueba -->
@@ -230,8 +182,7 @@
 
             </div>
             <!-- nnnnnnnnnnnnnkkkkk -->
-            <div class="card container col-lg-8 col-md-8 "
-                style="margin-top: 5%; margin-bottom: 5%;  ">
+            <div class="card container col-lg-8 col-md-8 " style="margin-top: 5%; margin-bottom: 5%;  ">
                 <div class="flex">
 
                     <div class="">
@@ -244,7 +195,7 @@
                             [(ngModel)]="text"></textarea>
                     </div>
                     <div class="pos-end">
-                        <a class=" btn btn-primary" (click)="send()" >SEND </a>
+                        <a class=" btn btn-primary" (click)="send()">SEND </a>
 
                     </div>
                 </div>
@@ -252,26 +203,5 @@
             <!-- mmmmmmmmmmmmmmmmmmmmmmmmm -->
         </div>
     </div>
-</div>
-
-<div class="card">
-
-    <div class="flex">
-        <div>
-            <img src= "assets/images/avatars/image-amyrobson.webp alt=">
-        </div>
-        <!-- <div class="" *ngIf="rep.user.username == noreply" style="margin-left: 1%;"> -->
-            <p style="background-color: blueviolet; "
-                class="text-white text-center">You</p>
-        <!-- </div> -->
-        
-        
-        <div>
-            <strong> juliusomo</strong>
-        </div>
-        <div class="pos-end">
-            <!-- {{rep.createdAt}}      -->
-           <button>kk</button>
-       </div>
 </div>
 

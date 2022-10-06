@@ -20,7 +20,11 @@
  }
  .pos-end{
    margin-left: auto;
-   margin-right: 3%;
+   margin-right: 4%;
+ }
+ .pos-begin{
+   margin-right: auto;
+   margin-left: 4%;
  }
  section{
     max-width: 680px;

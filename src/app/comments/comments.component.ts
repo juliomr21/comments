@@ -12,6 +12,7 @@ export class CommentsComponent implements OnInit {
   comments: any;
   text: string = "";
   reply: string = "";
+  
   tem: boolean = false;
   ed: boolean = true;
   edR: boolean = false;
@@ -146,9 +147,12 @@ export class CommentsComponent implements OnInit {
   }
 
   editar(id: number, us: string) {
-    if (this.tem) {
-      this.updateText(id);
-      return;
+    if (this.tem ) {
+      if(id == this.com)
+        this.updateText(id);
+        else
+        this.updateText(this.com)
+        return;
     }
 
     this.funn(id, us);
