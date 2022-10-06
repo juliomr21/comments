@@ -65,13 +65,12 @@
                             <p style="margin-right: 2%; margin-left:2%">{{i.content}}</p>
                             <div class="flex d-sm-none" style="margin-top: 2%; margin-bottom: 2%; margin-left: 2%;" >
                             
-                                <!-- xxxxxxxxxxx -->
-                                    <div class="btn-v" style="cursor: pointer;" (click)="changeScore(i.id, 1)" > <img src="assets/images/icon-plus.svg" alt=""  style="margin-left: 35%;  " ></div>
+                                                                  <div class="btn-v" style="cursor: pointer;" (click)="changeScore(i.id, 1)" > <img src="assets/images/icon-plus.svg" alt=""  style="margin-left: 35%;  " ></div>
                                     <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{i.score}}</strong></div>
                                     <div class="btn-v " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img src="assets/images/icon-minus.svg"  style="margin-left: 35%; " ></div>
                               
                               
-                              <!-- xxxxxxxxxxxxxxxxxx -->
+                              
                               <div class="pos-end d-sm-none" *ngIf="i.user.username != noreply">
 
                                 <img src="assets/images/icon-reply.svg" alt="">
@@ -124,10 +123,10 @@
 
                             <div class="pos-end">
                                 <div *ngIf="ed">
-                                    <button class=" btn btn-primary" (click)="sendReply(i.id)">Reply</button>
+                                    <button class=" btn text-white" style="background-color:hsl(238, 40%, 52%)" (click)="sendReply(i.id)">Reply</button>
                                 </div>
                                 <div *ngIf="!ed">
-                                    <button class=" btn btn-primary" (click)="updateText(i.id)">Update</button>
+                                    <button class=" btn text-white " style="background-color:hsl(238, 40%, 52%)" (click)="updateText(i.id)">Update</button>
                                 </div>
 
                             </div>
@@ -229,8 +228,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- area de prueba -->
-                    <!--  -->
                     <div *ngIf="edR && rep.id == com" class="flex">
                         <div class="mi-center">
                             <span></span>
@@ -242,18 +239,17 @@
                         </div>
                         <div class="pos-end">
                             <div *ngIf="rep.user.username != noreply">
-                                <button class=" btn btn-primary" (click)="sendRReply(i.id)">Reply</button>
+                                <button class=" btn text-white" style="background-color:hsl(238, 40%, 52%)" (click)="sendRReply(i.id)">Reply</button>
                             </div>
 
                             <div *ngIf="rep.user.username == noreply" class="">
-                                <button class=" btn btn-primary" (click)="updateTextR(i.id,rep.id)">Update</button>
+                                <button class=" btn text-white " style="background-color:hsl(238, 40%, 52%)" (click)="updateTextR(i.id,rep.id)">Update</button>
                             </div>
 
                         </div>
 
                     </div>
 
-                    <!-- fin de area de prueba -->
                 </div>
 
             </div>
@@ -266,7 +262,7 @@
 
                     <div class="mi-center text-tarea">
                         <textarea name="" id="" cols="auto" rows="4" class="form-control"
-                            placeholder="Escriba un comentario..." style="margin-bottom: 5%;"
+                            placeholder="Add a comment..." style="margin-bottom: 5%;"
                             [(ngModel)]="text"></textarea>
                     </div>
                     <div class="pos-end">
