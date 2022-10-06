@@ -1,5 +1,6 @@
-<div style="background-color: rgb(122, 181, 236); ">
-
+<div style="background-color:hsl(239, 57%, 85%); ">
+    <div class="margin-init"></div>
+    
     <div class="container">
         <div class="row">
 
@@ -9,18 +10,20 @@
                     <div class="row">
 
 
-                        <div class="col-lg-1 col-md-1" style="margin-top: 2%;" w>
-                            <button class="btn btn-primary">+</button>
-                            <button class="btn btn-primary" disabled>{{i.score}}</button>
-                            <button class="btn btn-primary">+</button>
+                        <div class="col-lg-1 col-md-1 d-none d-md-block" style="margin-top: 2%; margin-bottom: 2%;" >
+                            
+                            
+                            <div class="btn-h" style="cursor: pointer;" (click)="changeScore(i.id, 1)" > <img src="assets/images/icon-plus.svg" alt=""  style="margin-left: 35%;  " ></div>
+                            <div class="btn-h text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{i.score}}</strong></div>
+                            <div class="btn-h " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img src="assets/images/icon-minus.svg"  style="margin-left: 35%; " ></div>
                         </div>
                         <div class="col-lg-11 col-md-11">
                             <div class="flex">
-                                <div>
+                                <div style="margin-left: 2%;">
                                     <img src={{i.user.image.png}} alt="">
                                 </div>
                                 <div *ngIf="i.user.username == noreply">
-                                    <p style="background-color: blueviolet; border-radius: 2em;"
+                                    <p style="background-color: hsl(238, 40%, 52%); border-radius: 5px;"
                                         class="text-white text-center">You</p>
                                 </div>
 
@@ -29,14 +32,14 @@
                                 <div style="margin-left: 1%;">
                                     {{i.createdAt}}
                                 </div>
-                                <div class="pos-end" *ngIf="i.user.username != noreply">
+                                <div class="pos-end d-none d-md-block" *ngIf="i.user.username != noreply">
 
                                     <img src="assets/images/icon-reply.svg" alt="">
-                                    <strong style="color:blueviolet;cursor: pointer;"
+                                    <strong style="color:hsl(238, 40%, 52%);cursor: pointer;"
                                         (click)="funn(i.id,i.user.username)"> Reply</strong>
 
                                 </div>
-                                <div class="pos-end" *ngIf="i.user.username == noreply">
+                                <div class="pos-end d-none d-md-block" *ngIf="i.user.username == noreply">
 
                                     <div class="row">
                                         <div class="col">
@@ -50,7 +53,7 @@
                                             <img src="assets/images/icon-edit.svg" alt="">
                                         </div>
 
-                                        <p style="color:blueviolet;cursor: pointer; " (click)="editar(i.id,noreply)"
+                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editar(i.id,noreply)"
                                             class="col"> Edit</p>
 
                                     </div>
@@ -58,9 +61,48 @@
                                 </div>
 
                             </div>
+                            
+                            <p style="margin-right: 2%; margin-left:2%">{{i.content}}</p>
+                            <div class="flex d-sm-none" style="margin-top: 2%; margin-bottom: 2%; margin-left: 2%;" >
+                            
+                                <!-- xxxxxxxxxxx -->
+                                    <div class="btn-v" style="cursor: pointer;" (click)="changeScore(i.id, 1)" > <img src="assets/images/icon-plus.svg" alt=""  style="margin-left: 35%;  " ></div>
+                                    <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{i.score}}</strong></div>
+                                    <div class="btn-v " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img src="assets/images/icon-minus.svg"  style="margin-left: 35%; " ></div>
+                              
+                              
+                              <!-- xxxxxxxxxxxxxxxxxx -->
+                              <div class="pos-end d-sm-none" *ngIf="i.user.username != noreply">
 
-                            <p>{{i.content}}</p>
+                                <img src="assets/images/icon-reply.svg" alt="">
+                                <strong style="color:hsl(238, 40%, 52%);cursor: pointer;"
+                                    (click)="funn(i.id,i.user.username)"> Reply</strong>
 
+                            </div>
+                            <div class="pos-end d-sm-none" *ngIf="i.user.username == noreply">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="assets/images/icon-delete.svg" alt="">
+                                    </div>
+
+                                    <div class="text-danger col" style="cursor: pointer;"
+                                        (click)="delet(i.id)"> delete </div>
+
+                                    <div class="col">
+                                        <img src="assets/images/icon-edit.svg" alt="">
+                                    </div>
+
+                                    <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editar(i.id,noreply)"
+                                        class="col"> Edit</p>
+
+                                </div>
+
+                            </div>
+
+                              
+                                </div>
+    
                         </div>
 
                     </div>
@@ -98,20 +140,22 @@
                 <div *ngFor="let rep of i.replies" class="card bg-light" style="margin-left: 10%; margin-top: 1%;">
 
                     <div class="row">
-                        <div class="col-lg-1 col-md-1" style="margin-top: 2%;">
-                            <button class="btn btn-primary">+</button>
-                            <button class="btn btn-primary">{{rep.score}}</button>
-                            <button class="btn btn-primary">+</button>
+                        <div class="col-lg-1 col-md-1 d-none d-md-block" style="margin-top: 2%;">
+                                                      
+                            <div class="btn-h" style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,1)"> <img src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;"></div>
+                            <div class="btn-h text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{rep.score}}</strong></div>
+                            <div class="btn-h " style="cursor: pointer;"   (click)="changeScoreR(i.id, rep.id,2)" ><img src="assets/images/icon-minus.svg" style="margin-left: 35%;"></div>
+                       
                         </div>
                         <div class="col-lg-11 col-md-11" style="margin-top: 2%;">
 
                             <div class="flex">
-                                <div>
+                                <div style="margin-left: 2%;">
                                     <img src={{rep.user.image.png}} alt="">
                                 </div>
                                 <div class="" *ngIf="rep.user.username == noreply" style="margin-left: 1%;">
-                                    <p style="background-color: blueviolet;  border-radius: 1em;"
-                                        class="text-white text-center">You</p>
+                                    <p style="background-color: hsl(238, 40%, 52%);  border-radius: 3px;"
+                                        class="text-white text-center"> You </p>
                                 </div>
 
 
@@ -121,13 +165,13 @@
                                 <div style="margin-left: 1%;">
                                     {{rep.createdAt}}
                                 </div>
-                                <div *ngIf="rep.user.username != noreply" class="pos-end">
+                                <div *ngIf="rep.user.username != noreply" class="d-none d-md-block pos-end ">
 
                                     <img src="assets/images/icon-reply.svg" alt="">
-                                    <strong style="color:blueviolet;cursor: pointer;"
+                                    <strong style="color:hsl(238, 40%, 52%);cursor: pointer;"
                                         (click)="ff(rep.id,rep.user.username)"> Reply</strong>
                                 </div>
-                                <div *ngIf="rep.user.username == noreply" class="pos-end ">
+                                <div *ngIf="rep.user.username == noreply" class="d-none d-md-block pos-end ">
 
                                     <div class="row">
                                         <div class="col">
@@ -141,7 +185,7 @@
                                             <img src="assets/images/icon-edit.svg" alt="">
                                         </div>
 
-                                        <p style="color:blueviolet;cursor: pointer; " (click)="editR(i.id,rep.id)"
+                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editR(i.id,rep.id)"
                                             class="col"> Edit</p>
 
                                     </div>
@@ -149,9 +193,41 @@
                                 </div>
                             </div>
 
-                            <p> {{rep.content}}</p>
+                            <p style="margin-left: 2%;margin-right: 2%;"> {{rep.content}}</p>
                         </div>
+                        <div class="flex d-sm-none" style="margin-top: 2%; margin-bottom: 3%; margin-left: 2%;">
+                                                      
+                            <div class="btn-v" style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,1)"> <img src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;"></div>
+                            <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{rep.score}}</strong></div>
+                            <div class="btn-v " style="cursor: pointer;"   (click)="changeScoreR(i.id, rep.id,2)" ><img src="assets/images/icon-minus.svg" style="margin-left: 35%;"></div>
+                       
+                            <div *ngIf="rep.user.username != noreply" class="pos-end">
 
+                                <img src="assets/images/icon-reply.svg" alt="">
+                                <strong style="color:hsl(238, 40%, 52%);cursor: pointer;"
+                                    (click)="ff(rep.id,rep.user.username)"> Reply</strong>
+                            </div>
+                            <div *ngIf="rep.user.username == noreply" class="pos-end ">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="assets/images/icon-delete.svg" alt="">
+                                    </div>
+
+                                    <div class="text-danger col" style="cursor: pointer;"
+                                        (click)="deleteR(i.id,rep.id)"> delete </div>
+
+                                    <div class="col">
+                                        <img src="assets/images/icon-edit.svg" alt="">
+                                    </div>
+
+                                    <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editR(i.id,rep.id)"
+                                        class="col"> Edit</p>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <!-- area de prueba -->
                     <!--  -->
@@ -195,7 +271,7 @@
                             [(ngModel)]="text"></textarea>
                     </div>
                     <div class="pos-end">
-                        <a class=" btn btn-primary" (click)="send()">SEND </a>
+                        <a class=" btn text-white " style="background-color: hsl(238, 40%, 52%);" (click)="send()">SEND </a>
 
                     </div>
                 </div>
@@ -204,4 +280,5 @@
         </div>
     </div>
 </div>
+                            
 

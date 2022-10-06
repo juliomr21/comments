@@ -12,7 +12,7 @@ export class CommentsComponent implements OnInit {
   comments: any;
   text: string = "";
   reply: string = "";
-  
+
   tem: boolean = false;
   ed: boolean = true;
   edR: boolean = false;
@@ -107,7 +107,7 @@ export class CommentsComponent implements OnInit {
     this.tem = !this.tem;
     this.reply = "@" + us + ","
   }
-  ff(id: number, us: string){
+  ff(id: number, us: string) {
     this.com = id;
     this.edR = !this.edR;
     this.reply = "@" + us + ","
@@ -147,12 +147,12 @@ export class CommentsComponent implements OnInit {
   }
 
   editar(id: number, us: string) {
-    if (this.tem ) {
-      if(id == this.com)
+    if (this.tem) {
+      if (id == this.com)
         this.updateText(id);
-        else
+      else
         this.updateText(this.com)
-        return;
+      return;
     }
 
     this.funn(id, us);
@@ -196,23 +196,53 @@ export class CommentsComponent implements OnInit {
   updateTextR(idP: number, idH: number) {
     for (let i in this.comments) {
       if (this.comments[i].id == idP) {
-        for(let j in this.comments[i].replies)
-        {
-          if(this.comments[i].replies[j].id == idH)
-          {
+        for (let j in this.comments[i].replies) {
+          if (this.comments[i].replies[j].id == idH) {
             this.comments[i].replies[j].content = this.reply;
             break;
           }
         }
-       break;
+        break;
       }
 
     }
     //this.tem = !this.tem;
     this.reply = ""
-    
+
     this.edR = !this.edR;
-  
+
+  }
+  changeScore(id: number, op: number) {
+
+    for (let i in this.comments) {
+      if (this.comments[i].id == id) {
+        if (op == 1)
+          this.comments[i].score = this.comments[i].score + 1;
+        else
+          this.comments[i].score = this.comments[i].score - 1;
+        break;
+      }
+    }
+
+  }
+  changeScoreR(idP: number, idH: number, op: number) {
+
+    for (let i in this.comments) {
+      if (this.comments[i].id  == idP) {
+        for (let j in this.comments[i].replies) {
+          if (this.comments[i].replies[j].id == idH) {
+            if (op == 1)
+              this.comments[i].replies[j].score = this.comments[i].replies[j].score + 1;
+            else
+              this.comments[i].replies[j].score = this.comments[i].replies[j].score - 1;
+            break;
+          }
+        }
+        break;
+
+      }
+    }
+
   }
 
 }
