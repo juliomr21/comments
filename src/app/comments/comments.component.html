@@ -1,6 +1,6 @@
 <div style="background-color:hsl(223, 19%, 93%); ">
     <div class="margin-init"></div>
-    
+
     <div class="container">
         <div class="row">
 
@@ -10,12 +10,15 @@
                     <div class="row">
 
 
-                        <div class="col-lg-1 col-md-1 d-none d-md-block" style="margin-top: 2%; margin-bottom: 2%;" >
-                            
-                            
-                            <div class="btn-h" style="cursor: pointer;" (click)="changeScore(i.id, 1)" > <img src="assets/images/icon-plus.svg" alt=""  style="margin-left: 35%;  " ></div>
-                            <div class="btn-h text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{i.score}}</strong></div>
-                            <div class="btn-h " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img src="assets/images/icon-minus.svg"  style="margin-left: 35%; " ></div>
+                        <div class="col-lg-1 col-md-1 d-none d-md-block" style="margin-top: 2%; margin-bottom: 2%;">
+
+
+                            <div class="btn-h" style="cursor: pointer;" (click)="changeScore(i.id, 1)"> <img
+                                    src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;  "></div>
+                            <div class="btn-h text-center " style="color: hsl(238, 40%, 52%);">
+                                <strong>{{i.score}}</strong></div>
+                            <div class="btn-h " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img
+                                    src="assets/images/icon-minus.svg" style="margin-left: 35%; "></div>
                         </div>
                         <div class="col-lg-11 col-md-11">
                             <div class="flex">
@@ -46,67 +49,71 @@
                                             <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
 
-                                        <div class="text-danger col" style="cursor: pointer;"data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            (click)="tempIdModal(i.id,-1)" > delete </div>
+                                        <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal" (click)="tempIdModal(i.id,-1)"> delete </div>
 
                                         <div class="col">
                                             <img src="assets/images/icon-edit.svg" alt="">
                                         </div>
 
-                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editar(i.id,noreply)"
-                                            class="col"> Edit</p>
+                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; "
+                                            (click)="editar(i.id,noreply)" class="col"> Edit</p>
 
                                     </div>
 
                                 </div>
 
                             </div>
-                            
+
                             <p style="margin-right: 2%; margin-left:2%">{{i.content}}</p>
-                            <div class="flex d-sm-none" style="margin-top: 2%; margin-bottom: 2%; margin-left: 2%;" >
-                            
-                                                                  <div class="btn-v" style="cursor: pointer;" (click)="changeScore(i.id, 1)" > <img src="assets/images/icon-plus.svg" alt=""  style="margin-left: 35%;  " ></div>
-                                    <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{i.score}}</strong></div>
-                                    <div class="btn-v " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img src="assets/images/icon-minus.svg"  style="margin-left: 35%; " ></div>
-                              
-                              
-                              
-                              <div class="pos-end d-sm-none" *ngIf="i.user.username != noreply">
+                            <div class="flex d-sm-none" style="margin-top: 2%; margin-bottom: 2%; margin-left: 2%;">
 
-                                <img src="assets/images/icon-reply.svg" alt="">
-                                <strong style="color:hsl(238, 40%, 52%);cursor: pointer;"
-                                    (click)="funn(i.id,i.user.username)"> Reply</strong>
+                                <div class="btn-v " style="cursor: pointer;" (click)="changeScore(i.id, 2)"><img
+                                        src="assets/images/icon-minus.svg" style="margin-left: 35%; "></div>
 
-                            </div>
-                            <div class="pos-end d-sm-none" *ngIf="i.user.username == noreply">
+                                <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);">
+                                    <strong>{{i.score}}</strong></div>
+                                <div class="btn-v" style="cursor: pointer;" (click)="changeScore(i.id, 1)"> <img
+                                        src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;  "></div>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <img src="assets/images/icon-delete.svg" alt="">
+
+
+                                <div class="pos-end d-sm-none" *ngIf="i.user.username != noreply">
+
+                                    <img src="assets/images/icon-reply.svg" alt="">
+                                    <strong style="color:hsl(238, 40%, 52%);cursor: pointer;"
+                                        (click)="funn(i.id,i.user.username)"> Reply</strong>
+
+                                </div>
+                                <div class="pos-end d-sm-none" *ngIf="i.user.username == noreply">
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <img src="assets/images/icon-delete.svg" alt="">
+                                        </div>
+
+                                        <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal" (click)="tempIdModal(i.id,-1)"> delete </div>
+
+                                        <div class="col">
+                                            <img src="assets/images/icon-edit.svg" alt="">
+                                        </div>
+
+                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; "
+                                            (click)="editar(i.id,noreply)" class="col"> Edit</p>
+
                                     </div>
-
-                                    <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                        (click)="tempIdModal(i.id,-1)"> delete </div>
-
-                                    <div class="col">
-                                        <img src="assets/images/icon-edit.svg" alt="">
-                                    </div>
-
-                                    <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editar(i.id,noreply)"
-                                        class="col"> Edit</p>
 
                                 </div>
 
+
                             </div>
 
-                              
-                                </div>
-    
                         </div>
 
                     </div>
                     <div *ngIf="tem && i.id == com">
-                        
+
 
 
                         <div class="flex" style="margin-left: 3%; margin-top: 3%">
@@ -117,16 +124,18 @@
 
 
                             <div class="mi-center text-tarea ">
-                                <textarea name="" id="" cols="auto" rows="4" class="form-control" style="margin-bottom: 5%;"
-                                    [(ngModel)]="reply"></textarea>
+                                <textarea name="" id="" cols="auto" rows="4" class="form-control"
+                                    style="margin-bottom: 5%;" [(ngModel)]="reply"></textarea>
                             </div>
 
                             <div class="pos-end">
                                 <div *ngIf="ed">
-                                    <button class=" btn text-white" style="background-color:hsl(238, 40%, 52%)" (click)="sendReply(i.id)">Reply</button>
+                                    <button class=" btn text-white" style="background-color:hsl(238, 40%, 52%)"
+                                        (click)="sendReply(i.id)">Reply</button>
                                 </div>
                                 <div *ngIf="!ed">
-                                    <button class=" btn text-white " style="background-color:hsl(238, 40%, 52%)" (click)="updateText(i.id)">Update</button>
+                                    <button class=" btn text-white " style="background-color:hsl(238, 40%, 52%)"
+                                        (click)="updateText(i.id)">Update</button>
                                 </div>
 
                             </div>
@@ -140,11 +149,14 @@
 
                     <div class="row">
                         <div class="col-lg-1 col-md-1 d-none d-md-block" style="margin-top: 2%;">
-                                                      
-                            <div class="btn-h" style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,1)"> <img src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;"></div>
-                            <div class="btn-h text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{rep.score}}</strong></div>
-                            <div class="btn-h " style="cursor: pointer;"   (click)="changeScoreR(i.id, rep.id,2)" ><img src="assets/images/icon-minus.svg" style="margin-left: 35%;"></div>
-                       
+
+                            <div class="btn-h" style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,1)"> <img
+                                    src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;"></div>
+                            <div class="btn-h text-center " style="color: hsl(238, 40%, 52%);">
+                                <strong>{{rep.score}}</strong></div>
+                            <div class="btn-h " style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,2)"><img
+                                    src="assets/images/icon-minus.svg" style="margin-left: 35%;"></div>
+
                         </div>
                         <div class="col-lg-11 col-md-11" style="margin-top: 2%;">
 
@@ -177,15 +189,16 @@
                                             <img src="assets/images/icon-delete.svg" alt="">
                                         </div>
 
-                                        <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            (click)="tempIdModal(i.id,rep.id)" > delete </div>
+                                        <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal" (click)="tempIdModal(i.id,rep.id)"> delete
+                                        </div>
 
                                         <div class="col">
                                             <img src="assets/images/icon-edit.svg" alt="">
                                         </div>
 
-                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; " (click)="editR(i.id,rep.id)"
-                                            class="col"> Edit</p>
+                                        <p style="color:hsl(238, 40%, 52%);cursor: pointer; "
+                                            (click)="editR(i.id,rep.id)" class="col"> Edit</p>
 
                                     </div>
 
@@ -195,11 +208,17 @@
                             <p style="margin-left: 2%;margin-right: 2%;"> {{rep.content}}</p>
                         </div>
                         <div class="flex d-sm-none" style="margin-top: 2%; margin-bottom: 3%; margin-left: 2%;">
-                                                      
-                            <div class="btn-v" style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,1)"> <img src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;"></div>
-                            <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);" ><strong>{{rep.score}}</strong></div>
-                            <div class="btn-v " style="cursor: pointer;"   (click)="changeScoreR(i.id, rep.id,2)" ><img src="assets/images/icon-minus.svg" style="margin-left: 35%;"></div>
-                       
+
+                            <div class="btn-v " style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,2)"><img
+                                src="assets/images/icon-minus.svg" style="margin-left: 35%;"></div>
+
+                                <div class="btn-v text-center " style="color: hsl(238, 40%, 52%);">
+                                    <strong>{{rep.score}}</strong></div>
+    
+                                
+                            <div class="btn-v" style="cursor: pointer;" (click)="changeScoreR(i.id, rep.id,1)"> <img
+                                    src="assets/images/icon-plus.svg" alt="" style="margin-left: 35%;"></div>
+                            
                             <div *ngIf="rep.user.username != noreply" class="pos-end">
 
                                 <img src="assets/images/icon-reply.svg" alt="">
@@ -213,8 +232,8 @@
                                         <img src="assets/images/icon-delete.svg" alt="">
                                     </div>
 
-                                    <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                        (click)="tempIdModal(i.id,rep.id)" > delete </div>
+                                    <div class="text-danger col" style="cursor: pointer;" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" (click)="tempIdModal(i.id,rep.id)"> delete </div>
 
                                     <div class="col">
                                         <img src="assets/images/icon-edit.svg" alt="">
@@ -239,11 +258,13 @@
                         </div>
                         <div class="pos-end">
                             <div *ngIf="rep.user.username != noreply">
-                                <button class=" btn text-white" style="background-color:hsl(238, 40%, 52%)" (click)="sendRReply(i.id)">Reply</button>
+                                <button class=" btn text-white" style="background-color:hsl(238, 40%, 52%)"
+                                    (click)="sendRReply(i.id)">Reply</button>
                             </div>
 
                             <div *ngIf="rep.user.username == noreply" class="">
-                                <button class=" btn text-white " style="background-color:hsl(238, 40%, 52%)" (click)="updateTextR(i.id,rep.id)">Update</button>
+                                <button class=" btn text-white " style="background-color:hsl(238, 40%, 52%)"
+                                    (click)="updateTextR(i.id,rep.id)">Update</button>
                             </div>
 
                         </div>
@@ -261,12 +282,12 @@
                     </div>
 
                     <div class="mi-center text-tarea">
-                        <textarea name="" id="" cols="auto" rows="4" class="form-control"
-                            placeholder="Add a comment..." style="margin-bottom: 5%;"
-                            [(ngModel)]="text"></textarea>
+                        <textarea name="" id="" cols="auto" rows="4" class="form-control" placeholder="Add a comment..."
+                            style="margin-bottom: 5%;" [(ngModel)]="text"></textarea>
                     </div>
                     <div class="pos-end">
-                        <a class=" btn text-white " style="background-color: hsl(238, 40%, 52%);" (click)="send()">SEND </a>
+                        <a class=" btn text-white " style="background-color: hsl(238, 40%, 52%);" (click)="send()">SEND
+                        </a>
 
                     </div>
                 </div>
@@ -274,24 +295,25 @@
         </div>
     </div>
 </div>
-                            
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="flex"> 
-          <h5 class="modal-title " id="exampleModalLabel" style="margin-left: 3%">Delete comment</h5>
-          <button type="button" class="btn-close pos-end" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="flex">
+                <h5 class="modal-title " id="exampleModalLabel" style="margin-left: 3%">Delete comment</h5>
+                <button type="button" class="btn-close pos-end" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body flex mi-center">
+                Are you sure you want to delete this comment? This will remove the comment and can't be undone.
+            </div>
+            <div class="flex mi-center" style="margin-bottom: 6px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin-right: 6px;">No,
+                    cancel</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="modalDelete() ">Yes,
+                    delete</button>
+            </div>
         </div>
-        <div class="modal-body flex mi-center">
-            Are you sure you want to delete this comment? This will remove the comment and can't be undone.
-        </div>
-        <div class="flex mi-center" style="margin-bottom: 6px;">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin-right: 6px;">No, cancel</button>
-          <button type="button" class="btn btn-danger"  data-bs-dismiss="modal" (click)="modalDelete() " >Yes, delete</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
+</div>
