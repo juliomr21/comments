@@ -25,7 +25,7 @@ export class CommentsComponent implements OnInit {
   constructor(private httpserv: HttpserviceService) { }
 
   ngOnInit(): void {
-    this.httpserv.getJson().subscribe(res => { this.database = res; this.comments = this.database.comments; console.log(this.comments); });
+    this.httpserv.getJson().subscribe(res => { this.database = res; this.comments = this.database.comments;  });
   }
   sendReply(id: number) {
 
@@ -134,10 +134,10 @@ export class CommentsComponent implements OnInit {
       if (this.comments[i].id == idP) {
 
         for (let j in this.comments[i].replies) {
-          console.log(this.comments[i].replies[j].id);
+          
           if (this.comments[i].replies[j].id != idH) {
             aux.push(this.comments[i].replies[j]);
-            console.log(this.comments[i].replies[j].id);
+            
           }
 
         }
